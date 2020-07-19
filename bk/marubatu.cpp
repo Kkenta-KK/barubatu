@@ -18,7 +18,7 @@ Bord::Bord() {}
 //ボードの初期化
 void Bord::init() {
     for (int i = 0; i < 16; ++i) {
-        if (i / 4 != 0 || i % 4 != 0) {
+        if (i / 4 != 0 && i % 4 != 0) {
             BORD[i] = 0;
         } else {
             BORD[i] = 3;
@@ -36,8 +36,9 @@ void Bord::step_forward(int const step_number, int const turnplayer) {
 void Bord::step_back(int const step_number) { BORD[step_number] = 0; }
 
 void Bord::show() {
-    std::cout << "*ABC" << std::endl;
+    std::cout << "--ABC" << std::endl;
     for (int i = 1; i < 4; ++i) {
+        std::cout << i;
         for (int j = 0; j < 4; ++j) {
             if (BORD[(i * 4) + j] == 0) {
                 std::cout << "*";
